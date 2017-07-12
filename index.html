@@ -1,0 +1,199 @@
+<html>
+	<head>
+		<title>RanDomText</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+		<script>
+			var obj = {
+			  sujet: [
+				'Berthier',
+				'Guy Moquet',
+				'Marine Le Pen',
+				'Emmanuel Macron',
+				'BrayanouProductions',
+				'Le 2001',
+				'Un lépreux',
+				'Donald Trump',
+				'Vactor',
+				'Le nazi',
+				'Jul',
+				'Denis Brogniart',
+				'Milan',
+				'La pisseuse',
+				'Marc Dutroux',
+				'Sophie Raillet',
+				'Ta mère en short',
+				'Enzo',
+				'Jacquie et Michel',
+				"Le p'tit gros barbu",
+				'Adolf Hitler',
+				'Louis',
+				'Enzo',
+				"L'ami Roland",
+				'Ma bite',
+				'Milan',
+				'Sonic',
+				'La bissarde',
+				"J'suis nickel",
+				'Un manifestant contre le nucléaire bordelais des années 60',
+				'Le parrain de ma fille',
+				'Un hendek',
+				'Léa passion vétérinaire',
+				'Rocco Siffredi',
+				'Marge',
+				'Clément',
+				'Dorian',
+				'Un bébé',
+				'Antoine Joly',
+				'Martine a la ferme',
+				'Un beau poulpe',
+				'Un choux chinois',
+				'Une famille du nord de la France',
+				'Une fille de 15 ans qui fait les trottoires ',
+				'Mon doudou tout doux',
+				'Tonton Raph',
+				'une catin des bois',
+			  ],
+			  verbe: [
+				'a collé',
+				'a détruit',
+				'démonte',
+				'viole',
+				'arrache',
+				'détruit',
+				'mange',
+				'force',
+				'dépucèle',
+				'attrape',
+				'vise',
+				'découpe',
+				'regarde',
+				'baise',
+				'éjacule sur',
+				'simule',
+				'a collé',
+				'pisse sur',
+				'défonce',
+				'déglingue',
+				'suce',
+				'gicle',
+				'bifle',
+				'brûle',
+				'a pécho',
+				'poutre',
+				'se touche sur',
+				'aime',
+				'veut éradiquer',
+				'tronche',
+				'déplace',
+				'va pisser avec',
+				'va chier sur',
+				'doigte',
+				'gueule sur',
+				'éjacule en pensant à',
+				'veut défoncer',
+				'déboite',
+				'attrape',
+				'appelle',
+				'sent',
+				'cherche',
+				'est',
+				'a déjà réussi à se rentrer',
+				'mord',
+				'écrase',
+				'souffler',
+				'fume',
+				'matte',
+				'prank',
+				'dabe sur',
+			  ],
+			  cod: [
+				'mes cours.',
+				'le respect.',
+				'la chimie verte.',
+				"avant d'avoir visé.",
+				'des chinois.',
+				'ta mère.',
+				"après l'acte.",
+				'en baisant',
+				'ton  chien.',
+				'ses vidéos.',
+				'les nazis.',
+				'aux toilettes.',
+				'des nains.',
+				'du porno.',
+				'des tentacules.',
+				'la bite.',
+				'une biche.',
+				'pedobear.',
+				'ton père.',
+				'des juifs.',
+				'sur Tinder.',
+				'dring-pack.',
+				'les bornes.',
+				'Face de Poney.',
+				'un trou de fesse.',
+				'le 2001.',
+				'une creampie.',
+				'le vrai Bac.',
+				'de la poudre de perlinpinpin.',
+				'Donald Trump.',
+				'Angela Merkel.',
+				'Susan Boyle.',
+				'des albanais.',
+				'des bougnouls marocains.',
+				'les roux.',
+				'des queues.',
+				'Wilfried.',
+				'les secondes',
+				'mes doigts',
+				'les teletubbies.',
+				'le plus beau.',
+				"Un phalus d'étalon.",
+				'tes pieds.',
+				'Une armee de mini Poutine.',
+				'de la weed.',
+				'American Pie.',
+				'Un vieux pedophile.',
+			  ]
+			}
+
+			function textealea(part) {
+			  var text = obj[part][Math.floor(Math.random() * obj[part].length)];
+			  document.querySelector('.generation_' + part).innerHTML = text;
+			};
+
+			function genererphrase() {
+			  var generersujet = setInterval(function() {
+				textealea('sujet')
+			  }, 100);
+			  setTimeout(function() {
+				clearInterval(generersujet);
+				var genererverbe = setInterval(function() {
+				  textealea('verbe')
+				}, 100);
+				setTimeout(function() {
+				  clearInterval(genererverbe);
+				  var generercod = setInterval(function() {
+					textealea('cod')
+				  }, 100);
+				  setTimeout(function() {
+					clearInterval(generercod);
+				  }, 500);
+				}, 500);
+			  }, 500);
+			};
+		</script>
+	</head>
+	<body>
+		<div id=titre>Générateur de phrase aléatoire</div>
+		<div id='phrase'>
+			<span class='generation_sujet'>Je veux</span> <span class='generation_verbe'>générer</span> <span class='generation_cod'>ma phrase aléatoire !</span>
+		</div>
+		<a onclick="genererphrase()" class="button">Générer ma phrase !</a>
+		<a href="https://docs.google.com/forms/d/e/1FAIpQLSfaazZMxcq3T5LNtBAKJ92s4AXNitP9WJACzOOizOAF26WgvQ/viewform?embedded=true" class="button2">Compléter le dictionnaire !</a>
+		<a  class="android" href="https://play.google.com/store/apps/details?id=com.RanDomText.gdev"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/2000px-Get_it_on_Google_play.svg.png"></img></a>
+		<div id=credits>Créé par Antoine Joly, hébergé par Louis Morandet ! </p> Nous ne sommes nullement responsables si vous vous sentez offensé.</div>
+		 
+	</body>
+</html>
