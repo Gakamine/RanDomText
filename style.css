@@ -1,99 +1,253 @@
 @import "compass/css3";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
 
 body {
+	overflow: hidden;
+}
+
+header {
+	font-family: sans-serif;
+	font-size: 18;
+}
+
+#logo {
 	position: absolute;
-	background-image: url('index.png');
-	background-size: cover;
+	height: 60%;
+	top: 20%;
+	left: 10%;
+	cursor: pointer;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  text-transform: uppercase;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  background-color: #f1f1f1;
+  left: 0;
+  height: 7%;
+  z-index: 2;
+  top: 0;
+  font-size: 16px;
+}
+
+li.menuli {
+  flex: 1 1;
+  position: relative;
+}
+li.menuli:last-child::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  display: block;
+  transition: .3s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+li.menuli:nth-child(1).current ~ li:last-child::after {
+  left: -500%;
+  background-color: #360033;
+}
+li.menuli:nth-child(2).current ~ li:last-child::after {
+  left: -400%;
+  background-color: #301441;
+}
+li.menuli:nth-child(3).current ~ li:last-child::after {
+  left: -300%;
+  background-color: #263357;
+}
+li.menuli:nth-child(4).current ~ li:last-child::after {
+  left: -200%;
+  background-color: #1b546f;
+}
+li.menuli:nth-child(5).current ~ li:last-child::after {
+  left: -100%;
+  background-color: #117385;
+}
+li.menuli:nth-child(6).current:last-child::after {
+  left: 0;
+  background-color: #0b8793;
+}
+li.menuli:nth-child(1):hover ~ li:last-child::after {
+  left: -500%;
+  background-color: #360033;
+}
+li.menuli:nth-child(2):hover ~ li:last-child::after {
+  left: -400%;
+  background-color: #301441;
+}
+li.menuli:nth-child(3):hover ~ li:last-child::after {
+  left: -300%;
+  background-color: #263357;
+}
+li.menuli:nth-child(4):hover ~ li:last-child::after {
+  left: -200%;
+  background-color: #1b546f;
+}
+li.menuli:nth-child(5):hover ~ li:last-child::after {
+  left: -100%;
+  background-color: #117385;
+}
+li.menuli:nth-child(6):last-child:last-child:hover::after {
+  left: 0;
+  background-color: #0b8793 !important;
+}
+li.menuli:nth-child(6):hover::after {
+  left: 0%;
+  background-color: #0b8793;
+}
+li.menuli:nth-child(1) a {
+  color: #000000;
+}
+li.menuli:nth-child(2) a {
+  color: #301441;
+}
+li.menuli:nth-child(3) a {
+  color: #263357;
+}
+li.menuli:nth-child(4) a {
+  color: #1b546f;
+}
+li.menuli:nth-child(5) a {
+  color: #397392;
+}
+li.menuli:nth-child(6) a {
+  color: #0b8793;
+}
+a.menua {
+  padding: 1rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: #666;
+}
+@media (max-width: 320px) {
+  .menu {
+    flex-direction: column;
+  }
+  li.menuli:last-child::after {
+    margin-top: -1.5px;
+  }
+  li.menuli:nth-child(1).current ~ li:last-child::after {
+    left: 0;
+    top: -400%;
+  }
+  li.menuli:nth-child(2).current ~ li:last-child::after {
+    left: 0;
+    top: -300%;
+  }
+  li.menuli:nth-child(3).current ~ li:last-child::after {
+    left: 0;
+    top: -200%;
+  }
+  li.menuli:nth-child(4).current ~ li:last-child::after {
+    left: 0;
+    top: -100%;
+  }
+  li.menuli:nth-child(5).current ~ li:last-child::after {
+    left: 0;
+    top: 0;
+  }
+  li.menuli:nth-child(6).current:last-child::after {
+    left: 0;
+    top: 100%;
+  }
+  li.menuli:last-child::after {
+    left: 0%;
+    top: 0%;
+  }
+  li.menuli:nth-child(1):hover ~ li:last-child::after {
+    left: 0;
+    top: -400%;
+  }
+  li.menuli:nth-child(2):hover ~ li:last-child::after {
+    left: 0;
+    top: -300%;
+  }
+  li.menuli:nth-child(3):hover ~ li:last-child::after {
+    left: 0;
+    top: -200%;
+  }
+  li.menuli:nth-child(4):hover ~ li:last-child::after {
+    left: 0;
+    top: -100%;
+  }
+  li.menuli:nth-child(5):hover ~ li:last-child::after {
+    left: 0;
+    top: 0;
+  }
+  li.menuli:nth-child(6):last-child:last-child:hover::after {
+    left: 0;
+    top: 100%;
+  }
+}
+
+li.nav {
+  margin: 0 1em;
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+nav {
+  margin: 0 auto;
+  text-align: center;
 }
 
 #titre{
-	position: fixed;
-	color: white;
+	position: absolute;
+	color: black;
 	font-family: HelveticaNeue, HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
-	font-size: 80;
+	font-size: 70;
 	text-align: center;
 	width: 100%;
-	top: 15%;
+	top: 20%;
 }
 
 
-a.button {
-	cursor: pointer;
-	text-align: center;
-	color: white;
-	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
-	font-family: HelveticaNeue, HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
-	font-size: 40;
-	position: fixed;
-	top: 60%;
-	left: calc((100% - 500px)/2);
-	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	display: block;
-	margin: 20px auto;
-	text-decoration: none;
-	border-radius: 4px;
-	padding: 20px 30px;
-	width: 500px;
+a.generer:active {
+  top: 108px;
+  box-shadow: 0px 7px 0px 0px #04B404;
 }
 
-a.button:hover {
-	color: white;
-	box-shadow: rgba(30, 22, 54, 0.7) 0 90px 0px 2px inset;
+.generer {
+	 position: absolute;
+	 background-color: #3ADF00;
+	 box-shadow: 0px 15px 0px 0px #04B404, 0px 0px 20px 0px #bbb;
 }
 
-
-
-a.button2{
-	cursor: pointer;
-	text-align: center;
-	color: white;
-	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
-	font-family: HelveticaNeue, HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
-	font-size: 20;
-	position: fixed;
-	top: 75%;
-	left: calc((100% - 300px)/2);
-	-webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	-o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
-	display: block;
-	margin: 20px auto;
-	text-decoration: none;
-	border-radius: 4px;
-	padding: 20px 30px;
-	width: 300px;
-}
-
-a.button2:hover {
-	color: white;
-	box-shadow: rgba(30, 22, 54, 0.7) 0 90px 0px 2px inset;
-}
-
-#credits {
-	position: fixed;
+footer {
+	position: relative;
 	width: 100%;
-	height: 10%;
+	height: auto;
 	left: 0;
 	bottom: 0;
 	text-align: center;
 	color: white;
+	background-color: black;
 	font-family: HelveticaNeue, HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
 }
 
 #phrase {
-	position: fixed;
+	position: absolute;
 	font-family: HelveticaNeue, HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Roboto, sans-serif;
+	padding: auto;
 	font-size: 60;
-	top: 40%;
+	top: 45%;
 	width: 100%;
+	height: auto;
 	text-align: center;
-	z-index: 999;
+	z-index: 1;
 }
 
 .generation_sujet {
@@ -108,15 +262,81 @@ a.button2:hover {
 	color: #00FF40;
 }
 
-img {
-	position: fixed;
-	width: auto;
-	height: 70px;
+a.buttons {
+  position: relative;
+  text-decoration: none;
+  font-family: "Fira Sans";
+  color: white;
+  width: auto;
+  height: 100px;
+  position: relative;
+  margin: 30px;
+  top: 100px;
+  padding: 16px;
+  font-size: 50px;
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
-.android {
-	position: fixed;
-	height: 70px;
-	bottom: 20;
-	z-index: 1;
+#suggest {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	left: 0;
+	text-align: center;
+	top: 80%;
+	color: transparent;
+}
+
+#container {
+	position: absolute;
+	top: 55%;
+	width: 100%;
+	text-align: center;
+	left: 0;
+}
+
+#home {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#voc {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+
+#theme {
+	position: absolute;
+	top: 200%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: red;
+}
+
+#compte {
+	position: absolute;
+	top: 300%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: yellow;
+}
+
+#contact {
+	position: absolute;
+	top: 400%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: green;
 }

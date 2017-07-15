@@ -1,9 +1,45 @@
 <html>
 	<head>
+		<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+		<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+		<script src='http://cdnjs.cloudflare.com/ajax/libs/bower-angular-translate/2.5.2/angular-translate.min.js'></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="js/jquery.inview.min.js"></script>
+		<script src="js/menu.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+		<div class="container"  ng-app="myApp" ng-controller="Ctrl">
 		<title>RanDomText</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
 		<script>
+			$(document).on('click', 'a[href^="#"]', function(e) {
+				// target element id
+				var id = $(this).attr('href');
+
+				// target element
+				var $id = $(id);
+				if ($id.length === 0) {
+					return;
+				}
+
+				// prevent standard hash navigation (avoid blinking in IE)
+				e.preventDefault();
+
+				// top position relative to the document
+				var pos = $(id).offset().top;
+
+				// animated top scrolling
+				$('body, html').animate({scrollTop: pos});
+			  $(this).focusout();
+			});
+		</script>
+		<script>
+			function fav(icon)
+			{
+			document.getElementById("fav-icon").innerHTML = icon;
+			}
 			var obj = {
 			  sujet: [
 				'Berthier',
@@ -183,17 +219,59 @@
 				}, 500);
 			  }, 500);
 			};
+			genererphrase();
 		</script>
 	</head>
+	  <header>
+		<ul class="menu">
+		  <li class="current menuli"><img id=logo src="logo.png"></li>
+		  <li class="menuli"><a class="menua" href="#home">Accueil</a></li>
+		  <li class="menuli"><a class="0 menua" href="#voc">Vocabulaire</a></li>
+		  <li class="menuli"><a class="0 menua" href="#theme">Thèmes</a></li>
+		  <li class="menuli"><a class="0 menua" href="#compte">Mon compte</a></li>
+		  <li class="menuli"><a class="0 menua" href="#contact">Nous contacter</a></li>
+		</ul>
+	 </header>
 	<body>
+	<div id="home">
 		<div id=titre>Générateur de phrase aléatoire</div>
 		<div id='phrase'>
 			<span class='generation_sujet'>Je veux</span> <span class='generation_verbe'>générer</span> <span class='generation_cod'>ma phrase aléatoire !</span>
 		</div>
-		<a onclick="genererphrase()" class="button">Générer ma phrase !</a>
-		<a href="https://docs.google.com/forms/d/e/1FAIpQLSfaazZMxcq3T5LNtBAKJ92s4AXNitP9WJACzOOizOAF26WgvQ/viewform?embedded=true" class="button2">Compléter le dictionnaire !</a>
-		<a  class="android" href="https://play.google.com/store/apps/details?id=com.RanDomText.gdev"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/2000px-Get_it_on_Google_play.svg.png"></img></a>
-		<div id=credits>Créé par Antoine Joly, hébergé par Louis Morandet ! </p> Nous ne sommes nullement responsables si vous vous sentez offensé.</div>
-		 
+		<div id=container><a onclick="genererphrase(); fav('star_border');" class="generer buttons">Générer ma phrase !</a></div>
+		<div id="suggest">
+			<button onclick="genererphrase(); fav('star_border');" id="like" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+			  <i class="material-icons">thumb_up</i>
+			</button>
+			o
+			<div class="mdl-tooltip mdl-tooltip--large" for="like">
+				J'aime
+			</div>
+			<button onclick="fav('star_rate')"  id="fav" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" type="button">
+			  <i id="fav-icon" class="material-icons">star_border</i>
+			</button>
+			<div class="mdl-tooltip mdl-tooltip--large" for="fav">
+				Ajouter en favori
+			</div>
+			o
+			<button id="dislike" onclick="genererphrase(); fav('star_border');" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+			  <i class="material-icons">thumb_down</i>
+			</button>
+			<div class="mdl-tooltip mdl-tooltip--large" for="dislike">
+				Je n'aime pas
+			</div>			
+		</div>
+	</div>
+	<div id="voc">
+	</div>
+	<div id="theme">
+	</div>
+	<div id="compte">
+	</div>
+	<div id="contact">
+	</div>
 	</body>
+	<footer>
+		Créé par Antoine Joly et Benjamin Poux--Bouret, hébergé par Louis Morandet ! Nous ne sommes nullement responsables si vous vous sentez offensé. Copyright 2017 RandomText.
+	</footer>
 </html>
